@@ -6,6 +6,7 @@ const logger = require('morgan');
 const hbs = require('hbs');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 const app = express();
 
@@ -13,7 +14,8 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false }
+  cookie: { secure: false },
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
 mongoose.connect('mongodb+srv://denis:HE89uhI69QmUHdHy@cluster0.3zoht.mongodb.net/beauty?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
