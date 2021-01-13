@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const MasterSchema = {
   firstName: String,
   lastName: String,
-  desctiption: String,
+  description: String,
   createdAt: Date,
-  fotoIndex: String,
+  imgUri: String,
 }
 
 

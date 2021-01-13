@@ -3,8 +3,6 @@ const mongoose = require('mongoose');
 const UserSchema = {
   username: String,
   password: String,
-  createdAt: Date,
-  role: String,
 }
 
 
