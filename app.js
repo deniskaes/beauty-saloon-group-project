@@ -16,7 +16,7 @@ app.use(session({
   cookie: { secure: false }
 }));
 
-mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://denis:HE89uhI69QmUHdHy@cluster0.3zoht.mongodb.net/beauty?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const indexRouter = require('./routes/index');
 
