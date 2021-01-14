@@ -9,16 +9,8 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
 const app = express();
+mongoose.connect('mongodb://localhost:27017/beauty', { useNewUrlParser: true, useUnifiedTopology: true });
 
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: false,
-  cookie: { secure: false },
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
-}));
-
-mongoose.connect('mongodb+srv://denis:HE89uhI69QmUHdHy@cluster0.3zoht.mongodb.net/beauty?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const indexRouter = require('./routes/index');
 
@@ -31,6 +23,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: false,
+  cookie: { secure: false },
+}));
 
 app.use('/', indexRouter);
 

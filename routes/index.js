@@ -5,6 +5,13 @@ const User = require('../models/user');
 
 const salt = bcrypt.genSaltSync(10);
 
+router.use((req, res, next) => {
+  if (req.session?.username) {
+    res.locals.username = req.session.username;
+  }
+  next();
+});
+
 router.get('/', function (req, res) {
   res.render('index', { username: req.session.username });
 });
@@ -35,8 +42,8 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
-  req.session.destroy;
+  req.session.destroy();
   res.redirect('/');
-})
+});
 
 module.exports = router;

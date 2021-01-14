@@ -5,6 +5,9 @@
   "scripts": {
     "start": "node ./bin/www"
   },
+  "engine":{
+    "node":"15.4.0",
+  },
   "dependencies": {
     "bcrypt": "^5.0.0",
     "bulma": "^0.9.1",
