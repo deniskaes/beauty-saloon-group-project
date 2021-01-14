@@ -26,7 +26,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/reg', (req, res) => {
-  res.render('reg', { layout: false });
+  res.render('reg');
 });
 
 router.post('/reg', async (req, res) => {
