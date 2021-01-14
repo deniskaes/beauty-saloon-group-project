@@ -69,9 +69,10 @@ router.get('/masters/add', async (req, res) => {
 });
 
 router.get('/services', async (req, res) => {
-  const services = await Service.find();
+	const services = await Service.find();
+	console.log('services', services);
   // res.render('services', { user, services });
-  res.send('Туту сервисы уже создаются')
+  res.render('services', { services });
 });
 
 router.get('/services/:id', async (req, res) => {
