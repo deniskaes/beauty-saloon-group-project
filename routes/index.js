@@ -5,9 +5,15 @@ const User = require('../models/user');
 
 const salt = bcrypt.genSaltSync(10);
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
+router.use((req, res, next) => {
+  if (req.session?.username) {
+    res.locals.username = req.session.username;
+  }
+  next();
+});
+
+router.get('/', function (req, res) {
+  res.render('index', { username: req.session.username });
 });
 
 router.get('/reg', (req, res) => {
@@ -19,7 +25,7 @@ router.post('/reg', async (req, res) => {
   const cryptedPass = await bcrypt.hash(password, salt);
   const admin = new User({ username: login, password: cryptedPass });
   await admin.save();
-  res.send('registration success')
+  res.redirect('/');
 });
 
 router.get('/login', (req, res) => {
@@ -32,6 +38,11 @@ router.post('/login', async (req, res) => {
   if (bcrypt.compare(password, user.password)) {
     req.session.username = login;
   }
+  res.redirect('/');
+});
+
+router.get('/logout', (req, res) => {
+  req.session.destroy();
   res.redirect('/');
 });
 
