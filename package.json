@@ -5,8 +5,8 @@
   "scripts": {
     "start": "node ./bin/www"
   },
-  "engine":{
-    "node":"15.4.0",
+  "engines": {
+    "node": "15.4.0"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
