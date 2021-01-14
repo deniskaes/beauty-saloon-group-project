@@ -77,6 +77,7 @@ router.get('/services', async (req, res) => {
   const services = await Service.find();
   const username = req.session?.username;
   res.render('services', { username, services });
+
 });
 
 
