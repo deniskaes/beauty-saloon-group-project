@@ -5,6 +5,7 @@ const ServiceSchema = {
   description: String,
   price: Number,
   imgUri: String,
+  category: String,
 }
 
 
