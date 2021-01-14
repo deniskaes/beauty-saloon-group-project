@@ -29,6 +29,10 @@ router.get('/reg', (req, res) => {
   res.render('reg');
 });
 
+router.get('/contacts', (req, res) => {
+  res.render('contacts');
+});
+
 router.post('/reg', async (req, res) => {
   const { login, password } = req.body;
   const cryptedPass = await bcrypt.hash(password, salt);
@@ -70,8 +74,9 @@ router.get('/masters/add', async (req, res) => {
 
 router.get('/services', async (req, res) => {
   const services = await Service.find();
-  // res.render('services', { user, services });
-  res.send('Туту сервисы уже создаются')
+  const user = req.session?.username;
+  res.render('services', { user, services });
+  // res.send('Туту сервисы уже создаются')
 });
 
 router.get('/services/:id', async (req, res) => {
