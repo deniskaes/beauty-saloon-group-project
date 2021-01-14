@@ -73,11 +73,16 @@ router.get('/masters/add', async (req, res) => {
   res.send('Туту мастер добавление отрендерить форму для добавления')
 });
 
+// Edit master
+router.post('/masters/:id', async (req, res) => {
+	const {firstName, lastName, description, imgUri} = req.body;
+	await Master.updateOne({_id: req.params.id}, {firstName, lastName, description, imgUri});
+});
+
 router.get('/services', async (req, res) => {
-  const services = await Service.find();
+	const services = await Service.find();
   const username = req.session?.username;
   res.render('services', { username, services });
-
 });
 
 
