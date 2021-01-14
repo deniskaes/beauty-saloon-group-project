@@ -18,7 +18,7 @@ const checkPermissions = (req, res, next) => {
   if (req.session?.username) {
     next();
   }
-  res.redirect('/masters');
+  res.redirect('/');
 };
 
 router.get('/', function (req, res) {
@@ -75,9 +75,8 @@ router.get('/masters/add', async (req, res) => {
 
 router.get('/services', async (req, res) => {
   const services = await Service.find();
-  const user = req.session?.username;
-  res.render('services', { user, services });
-  // res.send('Туту сервисы уже создаются')
+  const username = req.session?.username;
+  res.render('services', { username, services });
 });
 
 
