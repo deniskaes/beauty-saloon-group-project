@@ -10,7 +10,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
 const app = express();
-mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/beauty' || process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 const indexRouter = require('./routes/index');
