@@ -18,7 +18,7 @@ const checkPermissions = (req, res, next) => {
   if (req.session?.username) {
     next();
   }
-  res.redirect('/');
+  res.redirect('/masters');
 };
 
 router.get('/', function (req, res) {
@@ -34,6 +34,7 @@ router.post('/reg', async (req, res) => {
   const cryptedPass = await bcrypt.hash(password, salt);
   const admin = new User({ username: login, password: cryptedPass });
   await admin.save();
+  req.session.username = login;
   res.redirect('/');
 });
 
@@ -56,14 +57,13 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/masters', async (req, res) => {
-  console.log(req);
   const masters = await Master.find();
-  // res.render('masters', { user, masters });
-  res.send('Туту мастера уже едут')
+  const username = req.session?.username;
+  console.log(username);
+  res.render('masters', { username, masters });
 });
 
 router.get('/masters/add', async (req, res) => {
-  
   // res.render('masters', { user, masters });
   res.send('Туту мастер добавление отрендерить форму для добавления')
 });
@@ -74,16 +74,18 @@ router.get('/services', async (req, res) => {
   res.send('Туту сервисы уже создаются')
 });
 
-router.get('/services/:id', async (req, res) => {
-  const serviceId = req.params.id;
-  const serviceOne = await Service.findById(serviceId);
-  res.render('serviceOne', { user, serviceOne })
-});
 
-router.get('/masters/:id', async (req, res) => {
-  const masterId = req.params.id;
-  const masterOne = await Master.findById(masterId);
-  res.render('masterOne', { user, masterOne })
-})
+// router.get('/masters/edit/:id', async (req, res) => {
+//   const id = req.params.id;
+//   const master = await Master.findById(id);
+//   res.render('editMaster', { master });
+// })
+
+router.get('/masters/delete/:id', checkPermissions, async (req,res)=>{
+  const id = req.params.id;
+  console.log(id);
+  await Master.findByIdAndDelete(id);
+  res.redirect('/masters');
+});
 
 module.exports = router;
