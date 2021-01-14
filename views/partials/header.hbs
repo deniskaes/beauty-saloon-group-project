@@ -1,47 +1,47 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-    <a class="navbar-item" href="/">
-      <img src="/img/logo-beaty.png" width="" height="">
+  <div class="navbar-brand">
+    <a id="logo-string" class="navbar-item" href="/"> ELBreauty
+      {{!-- <img src="/img/logo2.png" width="" height="">  --}}
     </a>
-    </div>
+  </div>
 
-    <div class="navbar-menu">
+  <div class="navbar-menu">
 
-      <div class="navbar-end">
-        <a class="navbar-item">
-          WHY?
+    <div class="navbar-end">
+      <a class="navbar-item">
+        О КОМАНИИ
+      </a>
+
+      <a class="navbar-item">
+        НАШИ МАСТЕРА
+      </a>
+
+      <a class="navbar-item">
+        УСЛУГИ И ЦЕНЫ
+      </a>
+
+      <a class="navbar-item">
+        КОНТАКТЫ
+      </a>
+      {{#if username}}
+      Hello, {{username}}
+      <div class="buttons">
+        <a class="button is-primary" href="/logout">
+          <strong>Log Out</strong>
         </a>
-
-        <a class="navbar-item">
-          BUY
-        </a>
-
-        <a class="navbar-item">
-          ILLUSTRATION SERIES
-        </a>
-
-        <a class="navbar-item">
-          EXCLUSIVE ILLUSTRATIONS
-        </a>
-                    {{#if username}}
-            Hello, {{username}}
-            <div class="buttons">
-              <a class="button is-primary" href="/logout">
-                <strong>Log Out</strong>
-              </a>
-            </div>
-            {{else}}
-            <div class="buttons">
-              <a class="button is-primary" href="/reg">
-                <strong>REG</strong>
-              </a>
-              <a class="button is-light" href="/login">
-                LOGIN
-              </a>
-            </div>
-            {{/if}}
-          </div>
-
       </div>
+      {{else}}
+      <div class="buttons">
+        <a class="button is-primary" href="/reg">
+          <strong>REG</strong>
+        </a>
+        <a class="button is-light" href="/login">
+          LOGIN
+        </a>
+      </div>
+      {{/if}}
     </div>
-  </nav>
+
+  </div>
+  </div>
+</nav>
