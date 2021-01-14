@@ -38,7 +38,7 @@ router.post('/reg', async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  res.render('login', { layout: false });
+  res.render('login');
 });
 
 router.post('/login', async (req, res) => {
@@ -63,7 +63,7 @@ router.get('/masters', async (req, res) => {
 });
 
 router.get('/masters/add', async (req, res) => {
-  
+
   // res.render('masters', { user, masters });
   res.send('Туту мастер добавление отрендерить форму для добавления')
 });

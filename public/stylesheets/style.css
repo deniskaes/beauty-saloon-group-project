@@ -11,3 +11,6 @@ a {
  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
  font-weight: bold;
 }
+#helloUser {
+  margin-right: 10px;
+}
