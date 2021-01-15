@@ -1,36 +1,36 @@
-<div id="parentForm" class="column is-6 is-offset-3">
+<div id="parentForm" class="column is-4 is-offset-4">
   <form id="editMaster" method="POST" action="/masters/save">
     <input type="hidden" name="id" value="{{master._id}}">
     <div class="field">
       <label class="label">Имя</label>
       <div class="control">
-        <input class="input is-medium" type="text" name="firstName" placeholder="Иван" value="{{master.firstName}}">
+        <input class="input is-medium " type="text" name="firstName" placeholder="Иван" value="{{master.firstName}}">
       </div>
     </div>
     <div class="field">
       <label class="label">Фамилия</label>
       <div class="control">
-        <input class="input is-medium" type="text" name="lastName" placeholder="Иванов" value="{{master.lastName}}">
+        <input class="input is-medium " type="text" name="lastName" placeholder="Иванов" value="{{master.lastName}}">
       </div>
     </div>
     <div class="field">
       <label class="label">Описание мастера</label>
       <div class="control">
-        <input class="textarea is-large" type="text" name="description" placeholder="Описание мастера"
-          value="{{master.description}}"> </input>
+        <textarea class="textarea is-medium " type="text" name="description" placeholder="Описание мастера"
+          value="{{master.description}}"> </textarea>
       </div>
     </div>
     <div class="field">
       <label class="label">Фото</label>
       <div class="control">
-        <input class="input is-medium" type="text" name="imgUri" placeholder="Номер фото" value="{{master.imgUri}}">
+        <input class="input is-medium " type="text" name="imgUri" placeholder="Номер фото" value="{{master.imgUri}}">
         <div>
         </div>
       </div>
       <br>
       <div class="control">
         <button type="submit"
-          class="button is-link is-fullwidth has-text-weight-medium is-medium is-success">Сохранить</button>
+          class="button is-link is-fullwidth has-text-weight-medium is-medium is-success ">Сохранить</button>
       </div>
   </form>
 </div>
