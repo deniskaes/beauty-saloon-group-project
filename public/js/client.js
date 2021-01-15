@@ -3,12 +3,12 @@ const log = console.log
 const contactForm = document.querySelector("#contactForm");
 const contactButton = document.querySelector('#contactButton');
 
-(function() {
+(function () {
   var burger = document.querySelector('.burger');
-  var menu = document.querySelector('#'+burger.dataset.target);
-  burger.addEventListener('click', function() {
-      burger.classList.toggle('is-active');
-      menu.classList.toggle('is-active');
+  var menu = document.querySelector('#' + burger.dataset.target);
+  burger.addEventListener('click', function () {
+    burger.classList.toggle('is-active');
+    menu.classList.toggle('is-active');
   });
 })();
 
