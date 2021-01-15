@@ -3,30 +3,38 @@
 		<div class="column is-6 is-offset-3">
 			<h2 class="title">Наши услуги</h2>
 			{{#each services}}
-				<div class="box has-background-danger-light">
-					<div class="level">
-						<div class="level-left">
-							<div class="level-item has-text-left">
-								<div>
-									<p class="heading">{{this.description}}</p>
-									<p class="title is-5">{{this.title}}</p>
-								</div>
-							</div>
-						</div>
-						<div class="level-right">
-							<div class="level-item">
-								<h5 class="title">
-									{{this.price}}
-								</h5>
-							</div>
-							<div class="level-item">
+			<div class="box has-background-danger-light">
+				<div class="level">
+					<div class="level-left">
+						<div class="level-item has-text-left">
+							<div>
+								<p class="heading">{{this.description}}</p>
+								<p class="title is-5">{{this.title}}</p>
 							</div>
 						</div>
 					</div>
+					<div class="level-right">
+						<div class="level-item">
+							<h5 class="title">
+								{{this.price}}
+							</h5>
+						</div>
+						<div class="level-item">
+							 {{#if ../username}}
+             
+                <a href="/services/edit/{{this._id}}"><button id="edit"
+                    class="button is-success">Отредактировать</button></a>
+                <a href="/services/delete/{{this._id}}">
+                  <button class="button is-danger">Удалить</button>
+                </a>
+              
+              {{/if}}
+						</div>
+					</div>
 				</div>
+			</div>
 			{{/each}}
+			<a href="/services/add"><button class="button is-rounded is-success">Добавить услугу</button></a>
 		</div>
 	</div>
-	
-	
 </section>

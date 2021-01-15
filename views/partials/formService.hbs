@@ -1,6 +1,6 @@
 <div id="parentForm" class="column is-6 is-offset-3">
 
-  <form id="editMaster" method="POST" action="/masters/update/{{master._id}}">
+  <form id="editMaster" method="POST" action="/services/update/{{master._id}}">
     <input type="hidden" name="id" value="{{service._id}}">
     <div class="field">
       <label class="label">Название услуги</label>
@@ -24,7 +24,7 @@
     <div class="field">
       <label class="label">Описание услуги</label>
       <div class="control">
-        <input class="textarea is-large" type="text" name="description" placeholder="Описание мастера"
+        <input class="textarea is-large" type="text" name="description" placeholder="Описание сервиса"
           value="{{service.description}}"> </input>
       </div>
     </div>
