@@ -15,56 +15,57 @@
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" href="/">
-        HOMEPAGE
-        <a class="navbar-item" href="/masters">
-          НАШИ МАСТЕРА
-        </a>
+        Главная
+			</a>
+			<a class="navbar-item" href="/masters">
+				Наши мастера
+			</a>
 
-        <a class="navbar-item" href="/services">
-          SERVICES
-        </a>
+			<a class="navbar-item" href="/services">
+				Все услуги
+			</a>
 
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            MORE
-          </a>
+			<div class="navbar-item has-dropdown is-hoverable">
+				<a class="navbar-link">
+					Больше
+				</a>
 
-          <div class="navbar-dropdown">
-            <a class="navbar-item">
-              ABOUT </a>
-            <a class="navbar-item">
-              OUR STAFF
-            </a>
-            <a class="navbar-item" href="/contacts">
-              CONTACTS
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              CONNECT WITH US
-            </a>
-          </div>
+				<div class="navbar-dropdown">
+					<a class="navbar-item" href="/#about">
+						 О нас 
+					</a>
+					<a class="navbar-item" href="/contacts">
+						Контакты
+					</a>
+					<hr class="navbar-divider" href="/contacts">
+					<a class="navbar-item">
+						Напишите нам
+					</a>
+				</div>
         </div>
     </div>
 
     <div class="navbar-end">
-			<div class="navbar-item">
-				<a href="#" class="ms_booking button is-danger">Онлайн-запись</a>
-			</div>
       <div class="navbar-item">
         {{#if username}}
-        <h3 id="helloUser"> Hello, <strong>{{username}} </strong> </h3>
+					<div class="navbar-item">
+       			<h3 id="helloUser"> Привет, <strong>{{username}} </strong> </h3>
+					</div>
         <div class="buttons">
+					<a href="#" class="ms_booking button is-danger">Онлайн-запись</a>
           <a class="button is-primary" href="/logout">
             <strong>Log Out</strong>
           </a>
         </div>
         {{else}}
         <div class="buttons">
+
+					<a href="#" class="ms_booking button is-danger">Онлайн-запись</a>
           <a class="button is-primary" href="/reg">
-            <strong>Sign up</strong>
+            <strong>Зарегистрироваться</strong>
           </a>
           <a class="button is-light" href="/login">
-            Log in
+            Войти
           </a>
         </div>
         {{/if}}
