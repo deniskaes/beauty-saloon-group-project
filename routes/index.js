@@ -67,7 +67,7 @@ router.get('/masters', async (req, res) => {
   res.render('masters', { username, masters });
 });
 
-router.get('/masters/add', async (req, res) => {
+router.get('/masters/add', checkPermissions, async (req, res) => {
 
   // res.render('masters', { user, masters });
   res.render('masterEdit');
