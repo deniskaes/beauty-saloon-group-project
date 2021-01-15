@@ -1,43 +1,45 @@
 <div class="section">
-	<div class="columns">
-		<div class="column is-6 is-offset-3">
-			<h2 class="title">Наши мастера</h2>
-			<div id="app" class="row columns is-multiline">
-				{{#each masters}}
-					<div class="column is-6">
-						<div class="card large">
-							<div class="card-image">
-								<figure class="image is-16by9"><a href="/masters/{{this._id}}"><img src="/img/{{this.imgUri}}.png"
-											alt="Image"></a>
-								</figure>
-							</div>
-							<div class="card-content">
-								<div class="media">
-									<div class="media-content">
-										<a href="/masters/{{this._id}}">
-											<p class="title is-4 no-padding">{{this.firstName}} {{this.firstName}}</p>
-										</a>
-									</div>
-								</div>
-								<div class="content">
-									{{this.description}}
-									<div class="background-icon"><span class="icon-twitter"></span></div>
-								</div>
-								{{#if ../username}}
-								<div class="media-left">
-									<a href="/masters/edit/{{this._id}}"><button id="edit"
-											class="button is-success">Отредактировать</button></a>
-									<a href="/masters/delete/{{this._id}}">
-										<button class="button is-danger">Уволить</button>
-									</a>
-								</div>
-								{{/if}}
-							</div>
-						</div>
-					</div>
-					{{/each}}
-				</div>
-			</div>
-		</div>
-	</div>
-  
+  <div class="columns">
+    <div class="column is-6 is-offset-3">
+      <h2 class="title">Наши мастера</h2>
+      <div id="app" class="row columns is-multiline">
+        {{#each masters}}
+        <div class="column is-6">
+          <div class="card large">
+            <div class="card-image">
+              <figure class="image is-4by3"><img src="/img/{{this.imgUri}}.jpg"
+                    alt="{{this.firstName}} {{this.lastName}}">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <a href="/masters/{{this._id}}">
+                    <p class="title is-4 no-padding">{{this.firstName}} {{this.lastName}}</p>
+                  </a>
+                </div>
+              </div>
+              <div class="content">
+                {{this.description}}
+                <div class="background-icon"><span class="icon-twitter"></span></div>
+              </div>
+              {{#if ../username}}
+              <div class="media-left">
+                <a href="/masters/edit/{{this._id}}"><button id="edit"
+                    class="button is-success">Отредактировать</button></a>
+                <a href="/masters/delete/{{this._id}}">
+                  <button class="button is-danger">Уволить</button>
+                </a>
+              </div>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+        {{/each}}
+        {{#if username}}
+        <a href="/masters/add"><button class="button is-rounded is-success">Add</button></a>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
