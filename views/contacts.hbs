@@ -27,17 +27,16 @@
 
           <form id="contactForm" class="field" action="">
             <label class="label">Имя</label>
-            <input id="nameInput" name="fullName" class="input is-medium" type="text" placeholder="Ivan Ivanov">
+            <input id="nameInput" name="fullName" class="input is-medium" type="text" placeholder="Ivan Ivanov" required>
             <label class="label">Email</label>
-            <input id="emailInput" name="email" class="input is-medium" type="email" placeholder="youremail@ya.ru">
+            <input id="emailInput" name="email" class="input is-medium" type="email" placeholder="youremail@ya.ru" required>
             <label class="label">Номер телефона</label>
-            <input id="telInput" name="tel" class="input is-medium" type="tel" placeholder="+7(911) 777-77-77">
+            <input id="telInput" name="tel" class="input is-medium" type="tel" placeholder="+7(911) 777-77-77" required>
             <label class="label">Сообщение</label>
             <textarea id="messageFromUser" name="messageFromUser" id="textInput" class="textarea is-medium"
-              placeholder="Ваше сообщение" value=" "></textarea>
+              placeholder="Ваше сообщение" value=" " required></textarea>
             <button id="contactButton" type="submit"
-              class="button is-link is-fullwidth has-text-weight-medium is-medium">Send
-              Message</button>
+              class="button is-link is-fullwidth has-text-weight-medium is-medium">Отправить</button>
           </form>
         </div>
       </div>
