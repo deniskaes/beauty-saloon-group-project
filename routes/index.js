@@ -16,9 +16,9 @@ router.use((req, res, next) => {
 
 const checkPermissions = (req, res, next) => {
   if (req.session?.username) {
-    next();
+    return next();
   }
-  res.redirect('/');
+   res.redirect('/');
 };
 
 router.get('/', function (req, res) {
@@ -77,7 +77,8 @@ router.get('/services', async (req, res) => {
   res.render('services', { username, services });
 });
 
-router.get('/services/add', async (req, res) => {
+router.get('/services/add', checkPermissions, async (req, res) => {
+  console.log("add service");
   res.render('serviceEdit');
 });
 
@@ -87,14 +88,20 @@ router.get('/services/edit/:id', async (req, res) => {
   res.render('serviceEdit', { service });
 });
 
-router.post('services/save', async (req, res) => {
+router.post('/services/save', async (req, res) => {
   const { id, title, description, price, imgUri, category } = req.body;
   if (id) {
     await Service.findByIdAndUpdate(id, { title, description, price, imgUri, category });
   } else {
-    const newMaster = new Service({ title, description, price, imgUri, category });
-    await newMaster.save();
+    const newService = new Service({ title, description, price, imgUri, category });
+    await newService.save();
   }
+  res.redirect('/services');
+});
+
+router.get('/services/delete/:id', checkPermissions, async (req, res) => {
+  const id = req.params.id;
+  await Service.findByIdAndDelete(id);
   res.redirect('/services');
 });
 
