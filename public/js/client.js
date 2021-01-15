@@ -20,29 +20,29 @@ contactForm.addEventListener('submit', async (event) => {
   const telInput = document.querySelector('#telInput')
   const messageFromUser = document.querySelector('#messageFromUser')
 
-	const response = await fetch("/client_message", {
-		method: "POST", 
-		headers: {
-			"Content-Type": "application/json"
-		},
-		body: JSON.stringify({
-			fullName: nameInput.value,
-			email: emailInput.value,
-			tel: telInput.value,
-			messageFromUser: messageFromUser.value,
-		}),
-	});
+  const response = await fetch("/client_message", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      fullName: nameInput.value,
+      email: emailInput.value,
+      tel: telInput.value,
+      messageFromUser: messageFromUser.value,
+    }),
+  });
 
-	const successMessage = document.createElement('div');
-	successMessage.classList.add('field');
-	successMessage.innerText = "Спасибо, форма отправлена!";
-	nameInput.value = "";
+  const successMessage = document.createElement('div');
+  successMessage.classList.add('field');
+  successMessage.innerText = "Спасибо, форма отправлена!";
+  nameInput.value = "";
   emailInput.value = "";
   telInput.value = "";
-	messageFromUser.value = "";
-	
-	container.append(successMessage);
+  messageFromUser.value = "";
 
-	console.log(response);
+  container.append(successMessage);
+
+  console.log(response);
 })
 
