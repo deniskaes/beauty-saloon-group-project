@@ -17,5 +17,10 @@ a {
 #formHeader {
   text-align: center;
   font-weight: bold;
-  font-size: large;
+  font-size: 26px;
+  padding-top: 20px;
+}
+#wrapperMasterForm {
+  height: 100vh;
+  background: radial-gradient(40% 50%, #FAECD5, #CAE4D8);
 }
