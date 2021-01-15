@@ -70,29 +70,35 @@ router.get('/masters', async (req, res) => {
 router.get('/masters/add', async (req, res) => {
 
   // res.render('masters', { user, masters });
-  res.send('Туту мастер добавление отрендерить форму для добавления')
-});
-
-// Edit master
-router.post('/masters/:id', async (req, res) => {
-	const {firstName, lastName, description, imgUri} = req.body;
-	await Master.updateOne({_id: req.params.id}, {firstName, lastName, description, imgUri});
+  res.render('masterEdit');
 });
 
 router.get('/services', async (req, res) => {
-	const services = await Service.find();
+  const services = await Service.find();
   const username = req.session?.username;
   res.render('services', { username, services });
 });
 
 
-// router.get('/masters/edit/:id', async (req, res) => {
-//   const id = req.params.id;
-//   const master = await Master.findById(id);
-//   res.render('editMaster', { master });
-// })
+router.get('/masters/edit/:id', async (req, res) => {
+  const id = req.params.id;
+  const master = await Master.findById(id);
+  res.render('masterEdit', { master });
+});
 
-router.get('/masters/delete/:id', checkPermissions, async (req,res)=>{
+router.post('/masters/save', async (req, res) => {
+  const { id, firstName, lastName, description, createdAt, imgUri ,addImage} = req.body;
+  console.log(id, firstName, lastName, description, imgUri, addImage);
+  if (id) {
+    await Master.findByIdAndUpdate(id, { firstName, lastName, description, imgUri });
+  } else {
+    const newMaster = new Master({ firstName, lastName, description, imgUri });
+    await newMaster.save();
+  }
+  res.redirect('/masters');
+});
+
+router.get('/masters/delete/:id', checkPermissions, async (req, res) => {
   const id = req.params.id;
   console.log(id);
   await Master.findByIdAndDelete(id);

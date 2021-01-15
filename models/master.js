@@ -4,7 +4,10 @@ const MasterSchema = {
   firstName: String,
   lastName: String,
   description: String,
-  createdAt: Date,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
   imgUri: String,
 }
 
