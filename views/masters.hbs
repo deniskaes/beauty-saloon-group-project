@@ -8,15 +8,13 @@
           <div class="card large">
             <div class="card-image">
               <figure class="image is-4by3"><img src="/img/{{this.imgUri}}.jpg"
-                    alt="{{this.firstName}} {{this.lastName}}">
+                  alt="{{this.firstName}} {{this.lastName}}">
               </figure>
             </div>
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <a href="/masters/{{this._id}}">
-                    <p class="title is-4 no-padding">{{this.firstName}} {{this.lastName}}</p>
-                  </a>
+                  <p class="title is-4 no-padding">{{this.firstName}} {{this.lastName}}</p>
                 </div>
               </div>
               <div class="content">
@@ -37,13 +35,12 @@
         </div>
         {{/each}}
         {{#if username}}
-        <a href="/masters/add"><button class="button is-rounded is-success">Add</button></a>
+        <div class="column level is-6 is-align-self-center is-justify-content-center">
+          <a href="/masters/add" class="level-item">
+          <button class="button is-rounded is-success is-centered is-align-self-center">Добавить мастера</button></a>
+        </div>
         {{/if}}
       </div>
     </div>
   </div>
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> views
