@@ -20,21 +20,23 @@
 							</h5>
 						</div>
 						<div class="level-item">
-							 {{#if ../username}}
-             
-                <a href="/services/edit/{{this._id}}"><button id="edit"
-                    class="button is-success">Отредактировать</button></a>
-                <a href="/services/delete/{{this._id}}">
-                  <button class="button is-danger">Удалить</button>
-                </a>
-              
-              {{/if}}
+							{{#if ../username}}
+
+							<a href="/services/edit/{{this._id}}"><button id="edit"
+									class="button is-success">Отредактировать</button></a>
+							<a href="/services/delete/{{this._id}}">
+								<button class="button is-danger">Удалить</button>
+							</a>
+
+							{{/if}}
 						</div>
 					</div>
 				</div>
 			</div>
 			{{/each}}
+			{{#if username}}
 			<a href="/services/add"><button class="button is-rounded is-success">Добавить услугу</button></a>
+			{{/if}}
 		</div>
 	</div>
 </section>

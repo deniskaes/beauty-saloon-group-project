@@ -1,6 +1,6 @@
 <div id="parentForm" class="column is-6 is-offset-3">
 
-  <form id="editMaster" method="POST" action="/services/update/{{master._id}}">
+  <form id="editMaster" method="POST" action="/services/save">
     <input type="hidden" name="id" value="{{service._id}}">
     <div class="field">
       <label class="label">Название услуги</label>
@@ -37,8 +37,7 @@
       </div>
       <br>
       <div class="control">
-        <button type="submit"
-          class="button is-link is-fullwidth has-text-weight-medium is-medium">Сохранить</button>
+        <button type="submit" class="button is-link is-fullwidth has-text-weight-medium is-medium">Сохранить</button>
       </div>
   </form>
 </div>
