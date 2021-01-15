@@ -1,6 +1,6 @@
 <div id="parentForm" class="column is-6 is-offset-3">
 
-  <form id="editMaster" method="POST" action=`/masters/edit/1234`>
+  <form id="editMaster" method="POST" action=`/masters/update/{{master._id}}`>
     <input type="hidden" name="id" value="{{master._id}}">
     <div class="field">
       <label class="label">Имя</label>
@@ -24,7 +24,7 @@
     <div class="field">
       <label class="label">Фото</label>
       <div class="control">
-        <input class="input is-medium" type="url" name="imgUri" placeholder="imgUri" value="{{master.imgUri}}">
+        <input class="input is-medium" type="text" name="imgUri" placeholder="Номер фото" value="{{master.imgUri}}">
         <div>
         </div>
       </div>
