@@ -14,3 +14,8 @@ a {
 #helloUser {
   margin-right: 10px;
 }
+#formHeader {
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+}

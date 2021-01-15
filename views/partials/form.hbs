@@ -1,0 +1,38 @@
+<div id="parentForm" class="column is-6 is-offset-3">
+
+  <form id="editMaster" method="POST" action=`/masters/edit/1234`>
+    <input type="hidden" name="id" value="{{master._id}}">
+    <div class="field">
+      <label class="label">Имя</label>
+      <div class="control">
+        <input class="input is-medium" type="text" name="firstName" placeholder="Иван" value="{{master.firstName}}">
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Фамилия</label>
+      <div class="control">
+        <input class="input is-medium" type="text" name="lastName" placeholder="Иванов" value="{{master.lastName}}">
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Описание мастера</label>
+      <div class="control">
+        <textarea class="textarea is-medium" type="text" name="description" placeholder="Описание мастера"
+          value="{{master.description}}"> </textarea>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Фото</label>
+      <div class="control">
+        <input class="input is-medium" type="url" name="imgUri" placeholder="imgUri" value="{{master.imgUri}}">
+        <div>
+        </div>
+      </div>
+      <br>
+      <div class="control">
+        <button type="submit"
+          class="button is-link is-fullwidth has-text-weight-medium is-medium">Редактировать</button>
+      </div>
+  </form>
+</div>
+</div>

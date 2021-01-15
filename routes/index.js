@@ -87,11 +87,12 @@ router.get('/services', async (req, res) => {
 //   res.render('editMaster', { master });
 // })
 
-router.get('/masters/delete/:id', checkPermissions, async (req,res)=>{
+router.get('/masters/delete/:id', checkPermissions, async (req, res) => {
   const id = req.params.id;
   console.log(id);
   await Master.findByIdAndDelete(id);
   res.redirect('/masters');
 });
+
 
 module.exports = router;
