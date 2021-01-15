@@ -87,7 +87,7 @@ router.get('/masters/edit/:id', async (req, res) => {
 });
 
 router.post('/masters/save', async (req, res) => {
-  const { id, firstName, lastName, description, createdAt, imgUri ,addImage} = req.body;
+  const { id, firstName, lastName, description, createdAt, imgUri, addImage } = req.body;
   console.log(id, firstName, lastName, description, imgUri, addImage);
   if (id) {
     await Master.findByIdAndUpdate(id, { firstName, lastName, description, imgUri });
@@ -104,5 +104,6 @@ router.get('/masters/delete/:id', checkPermissions, async (req, res) => {
   await Master.findByIdAndDelete(id);
   res.redirect('/masters');
 });
+
 
 module.exports = router;
