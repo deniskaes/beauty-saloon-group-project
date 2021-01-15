@@ -1,6 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
+const fetch = require('node-fetch');
 const User = require('../models/user');
 const Master = require('../models/master');
 const Service = require('../models/service');
@@ -130,5 +132,16 @@ router.get('/masters/delete/:id', checkPermissions, async (req, res) => {
   res.redirect('/masters');
 });
 
+router.post("/client_message", async (req, res) => {
+	const formData = req.body;
+	responseString = `Имя: ${formData.fullName} \nEmail: ${formData.email} \nТелефон: ${formData.tel} \nСообщение: ${formData.messageFromUser}`;
+
+	const telegramUrl = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage?text=${responseString}&chat_id=${process.env.CHAT_ID}`;
+	const encoded = encodeURI(telegramUrl);
+	await fetch(encoded)
+    .catch(err => console.error(err));
+
+	res.end();
+});
 
 module.exports = router;
