@@ -41,8 +41,9 @@ contactForm.addEventListener('submit', async (event) => {
   telInput.value = "";
   messageFromUser.value = "";
 
-  container.append(successMessage);
-
-  console.log(response);
-})
+	container.append(successMessage);
+	setTimeout(() => {
+		successMessage.remove();
+	}, 3000);
+});
 
