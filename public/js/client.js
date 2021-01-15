@@ -43,6 +43,8 @@ contactForm.addEventListener('submit', async (event) => {
 
   container.append(successMessage);
 
-  console.log(response);
+	setTimeout(() => {
+		successMessage.remove();
+	}, 3000);
 })
 
